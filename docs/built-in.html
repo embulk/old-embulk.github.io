@@ -13,7 +13,6 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Release Notes" href="release.html" />
@@ -308,8 +307,8 @@ For example, if you set <code class="docutils literal notranslate"><span class="
 <colgroup>
 <col width="14%" />
 <col width="5%" />
-<col width="58%" />
-<col width="23%" />
+<col width="59%" />
+<col width="22%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">name</th>
@@ -391,15 +390,20 @@ For example, if you set <code class="docutils literal notranslate"><span class="
 </tr>
 <tr class="row-even"><td>newline</td>
 <td>enum</td>
-<td>Newline character (CRLF, LF or CR)</td>
+<td>CRLF, LF or CR. This value is inserted into multi-line quoted value as newline character</td>
 <td><code class="docutils literal notranslate"><span class="pre">CRLF</span></code> by default</td>
 </tr>
-<tr class="row-odd"><td>charset</td>
+<tr class="row-odd"><td>line_delimiter_recognized</td>
+<td>enum</td>
+<td>CRLF, LF or CR. If specified, only the character is recognized as line delimiter. Otherwise, all of them are recognized</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>charset</td>
 <td>enum</td>
 <td>Character encoding (eg. ISO-8859-1, UTF-8)</td>
 <td><code class="docutils literal notranslate"><span class="pre">UTF-8</span></code> by default</td>
 </tr>
-<tr class="row-even"><td>columns</td>
+<tr class="row-odd"><td>columns</td>
 <td>hash</td>
 <td>Columns (see below)</td>
 <td>required</td>
@@ -1555,7 +1559,7 @@ For example, if you set <code class="docutils literal notranslate"><span class="
 
     <div class="footer" role="contentinfo">
         &#169; Copyright 2015, Embulk Project.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.8.2.
     </div>
   </body>
 </html>

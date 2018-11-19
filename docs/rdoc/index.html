@@ -114,9 +114,16 @@ Embulk v0.9 series runs on Java 8. Java 9 is not supported in any version
 for the time being.</p>
 
 <p>You can download <code>embulk.bat</code> using this command on cmd.exe or
-PowerShell.exe:</p>
+PowerShell.exe.</p>
 
-<pre class="code ruby"><code class="ruby">PowerShell -Command &quot;&amp; {Invoke-WebRequest http://dl.embulk.org/embulk-latest.jar -OutFile embulk.bat}&quot;</code></pre>
+<p><a
+href="https://jfrog.com/knowledge-base/why-am-i-failing-to-work-with-jfrog-saas-service-with-tls-1-0-1-1/">Bintray
+no longer supports TLS 1.1 since June, 2018</a> although <a
+href="https://social.technet.microsoft.com/Forums/en-US/00b78ac4-cadb-4566-b175-beb9d34a9093/how-to-use-tls-11-or-12-for-invokewebrequest">PowerShell’s
+Invoke-WebRequest uses only SSL 3.0 and TLS 1.1 by default</a>. You&#39;ll
+need a tweak for PowerShell to use TLS 1.2, such as:</p>
+
+<pre class="code ruby"><code class="ruby">PowerShell -Command &quot;&amp; {[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::TLS12; Invoke-WebRequest http://dl.embulk.org/embulk-latest.jar -OutFile embulk.bat}&quot;</code></pre>
 
 <p>Next step: <a href="#running-example">Running example in 4 commands</a></p>
 
@@ -296,7 +303,7 @@ to acquire bintray API Keys</a></p>
 </div></div>
 
       <div id="footer">
-  Generated on Tue Oct 30 07:15:07 2018 by
+  Generated on Mon Nov 19 06:28:57 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.12 (ruby-2.3.3).
 </div>
